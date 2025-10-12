@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearCoreAI - Advanced AI Solutions</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ClearCoreAI delivers cutting-edge artificial intelligence solutions for modern businesses. Transform your operations with transparent, powerful AI technology.">
+    <meta name="keywords" content="artificial intelligence, AI solutions, machine learning, AI technology, business automation, AI consulting">
+    <meta name="author" content="ClearCoreAI">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ClearCoreAI - Advanced AI Solutions">
+    <meta property="og:description" content="Transform your business with transparent, powerful AI technology.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --bg-dark: #0f172a;
+            --bg-darker: #020617;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --border-color: rgba(148, 163, 184, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+            background: var(--bg-darker);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Container - Mobile First */
+        .container {
+            width: 100%;
+            padding: 0 16px;
+            margin: 0 auto;
+        }
+
+        /* Progressive Enhancement: Tablet */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 32px;
+                max-width: 768px;
+            }
+        }
+
+        /* Progressive Enhancement: Desktop */
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 48px;
+                max-width: 1280px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1440px;
+            }
+        }
+
+        /* Header/Nav - Mobile First */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.8);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        @media (min-width: 768px) {
+            .logo {
+                font-size: 24px;
+                gap: 14px;
+            }
+        }
+
+        .logo-icon {
+            position: relative;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 8px;
+            padding: 4px;
+        }
+
+        @media (min-width: 768px) {
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        @media (min-width: 768px) {
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 15px;
+            }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Hero Section - Mobile First */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0 40px;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 100px;
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-label {
+                font-size: 13px;
+                padding: 8px 20px;
+            }
+        }
+
+        .hero-title {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 56px;
+                margin-bottom: 24px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 72px;
+                margin-bottom: 28px;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 100%;
+            margin: 0 auto 32px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-subtitle {
+                font-size: 18px;
+                max-width: 600px;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-subtitle {
+                font-size: 20px;
+                max-width: 700px;
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 16px;
+            }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Stats - Mobile First */
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            padding: 40px 0;
+        }
+
+        @media (min-width: 768px) {
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 32px;
+                padding: 60px 0;
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .stat-number {
+                font-size: 42px;
+            }
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Features Section */
+        .section {
+            padding: 60px 0;
+        }
+
+        @media (min-width: 768px) {
+            .section {
+                padding: 80px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section {
+                padding: 120px 0;
+            }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .section-header {
+                margin-bottom: 64px;
+            }
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 100px;
+            color: var(--secondary);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 42px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section-title {
+                font-size: 48px;
+            }
+        }
+
+        .section-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .section-description {
+                font-size: 18px;
+            }
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 24px;
+            padding: 48px 24px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        @media (min-width: 768px) {
+            .cta-section {
+                padding: 80px 48px;
+                margin: 80px 0;
+            }
+        }
+
+        .cta-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .cta-title {
+                font-size: 36px;
+            }
+        }
+
+        .cta-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: 48px 0 32px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+                gap: 48px;
+            }
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 8px;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-brand-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-link {
+            margin-bottom: 12px;
+        }
+
+        .footer-link a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+            }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .social-links {
+                margin-top: 0;
+            }
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);">
+                        <div style="width: 8px; height: 8px; background: white; border-radius: 50%; position: absolute; top: 8px; left: 8px;"></div>
+                        <div style="width: 8px; height: 8px; background: white; border-radius: 50%; position: absolute; top: 8px; right: 8px;"></div>
+                        <div style="width: 8px; height: 8px; background: white; border-radius: 50%; position: absolute; bottom: 8px; left: 8px;"></div>
+                        <div style="width: 8px; height: 8px; background: white; border-radius: 50%; position: absolute; bottom: 8px; right: 8px;"></div>
+                        <div style="width: 12px; height: 12px; background: white; border-radius: 50%;"></div>
+                    </div>
+                    <span class="logo-text">ClearCoreAI</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate">
+                <span class="hero-label">Next-Gen AI Technology</span>
+                <h1 class="hero-title">Transform Your Business with Transparent AI</h1>
+                <p class="hero-subtitle">ClearCoreAI delivers cutting-edge artificial intelligence solutions that are powerful, transparent, and built for the future of business.</p>
+                <div style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 16px; padding: 24px; margin: 32px auto; max-width: 700px;">
+                    <p style="font-size: 18px; line-height: 1.6; color: var(--text-primary); text-align: center; margin: 0;">
+                        <strong style="color: #8b5cf6;">Let us build you a simple, powerful website</strong> with clear AI tools that reach your core business needs and drive real results.
+                    </p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#demo" class="btn-primary">Request Demo</a>
+                    <a href="#learn" class="btn-secondary">Learn More</a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Uptime Reliability</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5M+</div>
+                        <div class="stat-label">API Requests Daily</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Enterprise Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services/Tasks Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Services</span>
+                <h2 class="section-title">Simple AI Solutions We Build</h2>
+                <p class="section-description">Professional, custom-built tools designed to solve your specific business challenges.</p>
+                <div style="margin-top: 24px; padding: 16px 24px; background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15)); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 12px; display: inline-block;">
+                    <span style="color: #8b5cf6; font-weight: 700; font-size: 20px;">$500 - $4,500</span>
+                    <span style="color: var(--text-secondary); margin-left: 8px;">per project</span>
+                </div>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3 class="feature-title">AI Chatbot Assistant</h3>
+                    <p class="feature-description">Custom conversational AI for customer support, lead generation, or internal Q&A.</p>
+                    <a href="#chatbot-details" style="color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 12px; display: inline-block;">Learn More →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title">Data Analysis Dashboard</h3>
+                    <p class="feature-description">AI-powered insights from your data with automated reporting and visualization.</p>
+                    <a href="#dashboard-details" style="color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 12px; display: inline-block;">Learn More →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title">Content Generator</h3>
+                    <p class="feature-description">AI-assisted writing for blogs, product descriptions, social media, and marketing copy.</p>
+                    <a href="#content-details" style="color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 12px; display: inline-block;">Learn More →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title">Email Automation Tool</h3>
+                    <p class="feature-description">Smart email sequences with AI personalization and response tracking.</p>
+                    <a href="#email-details" style="color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 12px; display: inline-block;">Learn More →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title">Document Processor</h3>
+                    <p class="feature-description">Extract and analyze data from PDFs, forms, receipts, and invoices automatically.</p>
+                    <a href="#document-details" style="color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 12px; display: inline-block;">Learn More →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title">Image Recognition System</h3>
+                    <p class="feature-description">AI-powered image classification, object detection, or quality control automation.</p>
+                    <a href="#image-details" style="color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 12px; display: inline-block;">Learn More →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title">Voice Assistant</h3>
+                    <p class="feature-description">Custom voice-enabled AI for hands-free operations and accessibility.</p>
+                    <a href="#voice-details" style="color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 12px; display: inline-block;">Learn More →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title">Sentiment Analyzer</h3>
+                    <p class="feature-description">Track customer sentiment from reviews, surveys, and social media mentions.</p>
+                    <a href="#sentiment-details" style="color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 12px; display: inline-block;">Learn More →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title">Recommendation Engine</h3>
+                    <p class="feature-description">AI-driven product or content recommendations to boost engagement and sales.</p>
+                    <a href="#recommendation-details" style="color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 12px; display: inline-block;">Learn More →</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 48px;">
+                <p style="color: var(--text-secondary); font-size: 16px; margin-bottom: 24px;">Need something custom? We build tailored AI solutions for any business challenge.</p>
+                <a href="#contact" class="btn-primary">Request Custom Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details Section -->
+    <section class="section" style="background: rgba(0,0,0,0.2); padding: 80px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Service Details</h2>
+                <p class="section-description">Complete functionality breakdown for each AI solution</p>
+            </div>
+
+            <!-- Chatbot Details -->
+            <div id="chatbot-details" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 20px; padding: 40px; margin-bottom: 32px;">
+                <h3 style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;">AI Chatbot Assistant</h3>
+                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 24px; line-height: 1.8;">Build intelligent conversational AI that engages customers, answers questions, and automates support.</p>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Key Features:</h4>
+                <ul style="color: var(--text-secondary); line-height: 2; margin-bottom: 24px;">
+                    <li>Natural language understanding and response generation</li>
+                    <li>24/7 automated customer support</li>
+                    <li>Multi-channel deployment (website, WhatsApp, Slack, etc.)</li>
+                    <li>Custom training on your business data and FAQs</li>
+                    <li>Lead qualification and data collection</li>
+                    <li>Seamless handoff to human agents when needed</li>
+                    <li>Analytics dashboard with conversation insights</li>
+                    <li>Multi-language support</li>
+                </ul>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Perfect For:</h4>
+                <p style="color: var(--text-secondary); line-height: 1.8;">E-commerce stores, SaaS companies, service businesses, healthcare providers, educational institutions</p>
+            </div>
+
+            <!-- Dashboard Details -->
+            <div id="dashboard-details" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 20px; padding: 40px; margin-bottom: 32px;">
+                <h3 style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;">Data Analysis Dashboard</h3>
+                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 24px; line-height: 1.8;">Transform raw data into actionable insights with AI-powered analytics and beautiful visualizations.</p>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Key Features:</h4>
+                <ul style="color: var(--text-secondary); line-height: 2; margin-bottom: 24px;">
+                    <li>Real-time data processing and visualization</li>
+                    <li>AI-powered trend detection and forecasting</li>
+                    <li>Custom KPI tracking and alerts</li>
+                    <li>Interactive charts and graphs</li>
+                    <li>Automated report generation (daily, weekly, monthly)</li>
+                    <li>Integration with databases, spreadsheets, and APIs</li>
+                    <li>Anomaly detection and smart recommendations</li>
+                    <li>Export capabilities (PDF, Excel, CSV)</li>
+                </ul>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Perfect For:</h4>
+                <p style="color: var(--text-secondary); line-height: 1.8;">Marketing teams, sales departments, financial analysts, operations managers, executives</p>
+            </div>
+
+            <!-- Content Generator Details -->
+            <div id="content-details" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 20px; padding: 40px; margin-bottom: 32px;">
+                <h3 style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;">Content Generator</h3>
+                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 24px; line-height: 1.8;">Create high-quality content at scale with AI-assisted writing tailored to your brand voice.</p>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Key Features:</h4>
+                <ul style="color: var(--text-secondary); line-height: 2; margin-bottom: 24px;">
+                    <li>Blog post and article generation</li>
+                    <li>Product descriptions and specifications</li>
+                    <li>Social media captions and posts</li>
+                    <li>Email marketing copy</li>
+                    <li>Ad copy and headlines</li>
+                    <li>SEO optimization built-in</li>
+                    <li>Tone and style customization</li>
+                    <li>Multiple variations and A/B testing options</li>
+                </ul>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Perfect For:</h4>
+                <p style="color: var(--text-secondary); line-height: 1.8;">Content marketers, e-commerce businesses, agencies, bloggers, social media managers</p>
+            </div>
+
+            <!-- Email Automation Details -->
+            <div id="email-details" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 20px; padding: 40px; margin-bottom: 32px;">
+                <h3 style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;">Email Automation Tool</h3>
+                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 24px; line-height: 1.8;">Automate personalized email campaigns with AI-driven segmentation and optimization.</p>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Key Features:</h4>
+                <ul style="color: var(--text-secondary); line-height: 2; margin-bottom: 24px;">
+                    <li>Smart email sequence automation</li>
+                    <li>AI-powered personalization at scale</li>
+                    <li>Behavioral trigger-based campaigns</li>
+                    <li>Subject line optimization</li>
+                    <li>Send time optimization for maximum engagement</li>
+                    <li>A/B testing automation</li>
+                    <li>Response tracking and sentiment analysis</li>
+                    <li>Integration with CRM and marketing platforms</li>
+                </ul>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Perfect For:</h4>
+                <p style="color: var(--text-secondary); line-height: 1.8;">Sales teams, marketing departments, SaaS companies, B2B businesses, e-commerce stores</p>
+            </div>
+
+            <!-- Document Processor Details -->
+            <div id="document-details" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 20px; padding: 40px; margin-bottom: 32px;">
+                <h3 style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;">Document Processor</h3>
+                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 24px; line-height: 1.8;">Automatically extract, analyze, and organize data from documents with intelligent AI processing.</p>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Key Features:</h4>
+                <ul style="color: var(--text-secondary); line-height: 2; margin-bottom: 24px;">
+                    <li>OCR (Optical Character Recognition) for scanned documents</li>
+                    <li>Intelligent data extraction from PDFs and forms</li>
+                    <li>Invoice and receipt processing</li>
+                    <li>Contract analysis and key term extraction</li>
+                    <li>Automatic categorization and filing</li>
+                    <li>Data validation and error detection</li>
+                    <li>Export to databases or spreadsheets</li>
+                    <li>Batch processing for high-volume operations</li>
+                </ul>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Perfect For:</h4>
+                <p style="color: var(--text-secondary); line-height: 1.8;">Accounting firms, legal departments, HR teams, insurance companies, logistics businesses</p>
+            </div>
+
+            <!-- Image Recognition Details -->
+            <div id="image-details" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 20px; padding: 40px; margin-bottom: 32px;">
+                <h3 style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;">Image Recognition System</h3>
+                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 24px; line-height: 1.8;">Leverage computer vision AI to classify, detect, and analyze images automatically.</p>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Key Features:</h4>
+                <ul style="color: var(--text-secondary); line-height: 2; margin-bottom: 24px;">
+                    <li>Object detection and classification</li>
+                    <li>Quality control and defect detection</li>
+                    <li>Product tagging and categorization</li>
+                    <li>Face detection and recognition (if applicable)</li>
+                    <li>Visual search capabilities</li>
+                    <li>Automatic image moderation</li>
+                    <li>Real-time processing via camera or upload</li>
+                    <li>Custom model training on your specific use case</li>
+                </ul>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Perfect For:</h4>
+                <p style="color: var(--text-secondary); line-height: 1.8;">Manufacturing, retail, security, healthcare, e-commerce, social media platforms</p>
+            </div>
+
+            <!-- Voice Assistant Details -->
+            <div id="voice-details" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 20px; padding: 40px; margin-bottom: 32px;">
+                <h3 style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;">Voice Assistant</h3>
+                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 24px; line-height: 1.8;">Enable voice-controlled interactions with custom AI assistants for hands-free operations.</p>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Key Features:</h4>
+                <ul style="color: var(--text-secondary); line-height: 2; margin-bottom: 24px;">
+                    <li>Speech-to-text and text-to-speech conversion</li>
+                    <li>Natural language voice command processing</li>
+                    <li>Custom wake word activation</li>
+                    <li>Multi-language voice support</li>
+                    <li>Voice authentication and security</li>
+                    <li>Integration with IoT devices and systems</li>
+                    <li>Accessibility features for users with disabilities</li>
+                    <li>Phone system integration for IVR</li>
+                </ul>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Perfect For:</h4>
+                <p style="color: var(--text-secondary); line-height: 1.8;">Smart home systems, healthcare facilities, call centers, automotive, accessibility services</p>
+            </div>
+
+            <!-- Sentiment Analyzer Details -->
+            <div id="sentiment-details" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 20px; padding: 40px; margin-bottom: 32px;">
+                <h3 style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;">Sentiment Analyzer</h3>
+                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 24px; line-height: 1.8;">Monitor and analyze customer emotions and opinions across all touchpoints automatically.</p>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Key Features:</h4>
+                <ul style="color: var(--text-secondary); line-height: 2; margin-bottom: 24px;">
+                    <li>Real-time sentiment detection (positive, negative, neutral)</li>
+                    <li>Social media monitoring across platforms</li>
+                    <li>Review and feedback analysis</li>
+                    <li>Customer survey processing</li>
+                    <li>Trend identification and alerts</li>
+                    <li>Emotion detection (joy, anger, sadness, etc.)</li>
+                    <li>Competitor sentiment comparison</li>
+                    <li>Automated reporting with insights</li>
+                </ul>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Perfect For:</h4>
+                <p style="color: var(--text-secondary); line-height: 1.8;">Brand managers, customer experience teams, PR agencies, product managers, market researchers</p>
+            </div>
+
+            <!-- Recommendation Engine Details -->
+            <div id="recommendation-details" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 20px; padding: 40px; margin-bottom: 32px;">
+                <h3 style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;">Recommendation Engine</h3>
+                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 24px; line-height: 1.8;">Increase engagement and revenue with personalized AI-driven product and content recommendations.</p>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Key Features:</h4>
+                <ul style="color: var(--text-secondary); line-height: 2; margin-bottom: 24px;">
+                    <li>Collaborative filtering algorithms</li>
+                    <li>Content-based recommendations</li>
+                    <li>Hybrid recommendation models</li>
+                    <li>Real-time personalization</li>
+                    <li>Cross-sell and upsell suggestions</li>
+                    <li>Trending and popular item detection</li>
+                    <li>A/B testing for optimization</li>
+                    <li>API integration for seamless deployment</li>
+                </ul>
+                
+                <h4 style="color: var(--text-primary); font-size: 20px; margin-bottom: 16px;">Perfect For:</h4>
+                <p style="color: var(--text-secondary); line-height: 1.8;">E-commerce platforms, streaming services, news websites, online marketplaces, content platforms</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Features</span>
+                <h2 class="section-title">Powerful AI Capabilities</h2>
+                <p class="section-description">Built with cutting-edge technology to deliver unmatched performance and reliability for your business needs.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Lightning Fast Processing</h3>
+                    <p class="feature-description">Process millions of data points in real-time with our optimized AI infrastructure.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2" fill="white"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Enterprise Security</h3>
+                    <p class="feature-description">Bank-level encryption and compliance with global security standards.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M18 17l-5-5-4 4-4-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Advanced Analytics</h3>
+                    <p class="feature-description">Deep insights and actionable intelligence from your data streams.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="white"/>
+                            <path d="M12 1v6m0 6v6M23 12h-6m-6 0H1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Seamless Integration</h3>
+                    <p class="feature-description">Connect with your existing tools and workflows effortlessly.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="2" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Precision Accuracy</h3>
+                    <p class="feature-description">State-of-the-art models delivering industry-leading accuracy rates.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M7 16l4-4 4 4 6-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Scalable Architecture</h3>
+                    <p class="feature-description">Grow from startup to enterprise without limitations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to Get Started?</h2>
+                <p class="cta-description">Join hundreds of companies already transforming their business with ClearCoreAI.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Start Free Trial</a>
+                    <a href="#sales" class="btn-secondary">Talk to Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact" style="background: rgba(0,0,0,0.2);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Contact Us</span>
+                <h2 class="section-title">Let's Build Your AI Solution</h2>
+                <p class="section-description">Tell us about your project and we'll get back to you within 24 hours with a custom quote.</p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <form id="contactForm" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: 20px; padding: 40px;">
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 24px;">
+                        <!-- Name and Email Row -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div>
+                                <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Name *</label>
+                                <input type="text" name="name" required style="width: 100%; padding: 14px 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); font-size: 15px; transition: all 0.3s ease;" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Email *</label>
+                                <input type="email" name="email" required style="width: 100%; padding: 14px 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); font-size: 15px; transition: all 0.3s ease;" placeholder="your@email.com">
+                            </div>
+                        </div>
+                        
+                        <!-- Company and Phone Row -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div>
+                                <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Company</label>
+                                <input type="text" name="company" style="width: 100%; padding: 14px 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); font-size: 15px; transition: all 0.3s ease;" placeholder="Your company">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Phone</label>
+                                <input type="tel" name="phone" style="width: 100%; padding: 14px 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); font-size: 15px; transition: all 0.3s ease;" placeholder="(555) 123-4567">
+                            </div>
+                        </div>
+                        
+                        <!-- Service Selection -->
+                        <div>
+                            <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Service Interested In *</label>
+                            <select name="service" required style="width: 100%; padding: 14px 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); font-size: 15px; cursor: pointer;">
+                                <option value="">Select a service...</option>
+                                <option value="chatbot">AI Chatbot Assistant</option>
+                                <option value="dashboard">Data Analysis Dashboard</option>
+                                <option value="content">Content Generator</option>
+                                <option value="email">Email Automation Tool</option>
+                                <option value="document">Document Processor</option>
+                                <option value="image">Image Recognition System</option>
+                                <option value="voice">Voice Assistant</option>
+                                <option value="sentiment">Sentiment Analyzer</option>
+                                <option value="recommendation">Recommendation Engine</option>
+                                <option value="custom">Custom Solution</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Budget Range -->
+                        <div>
+                            <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Budget Range *</label>
+                            <select name="budget" required style="width: 100%; padding: 14px 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); font-size: 15px; cursor: pointer;">
+                                <option value="">Select budget range...</option>
+                                <option value="500-1000">$500 - $1,000</option>
+                                <option value="1000-2000">$1,000 - $2,000</option>
+                                <option value="2000-3500">$2,000 - $3,500</option>
+                                <option value="3500-4500">$3,500 - $4,500</option>
+                                <option value="4500+">$4,500+</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Message -->
+                        <div>
+                            <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Project Details *</label>
+                            <textarea name="message" required rows="5" style="width: 100%; padding: 14px 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); font-size: 15px; resize: vertical; font-family: inherit;" placeholder="Tell us about your project, timeline, and any specific requirements..."></textarea>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-primary" style="width: 100%; cursor: pointer; border: none; font-size: 16px;">
+                            Send Request
+                        </button>
+                        
+                        <div id="formMessage" style="display: none; padding: 16px; border-radius: 10px; text-align: center; font-weight: 600;"></div>
+                    </div>
+                </form>
+                
+                <!-- Alternative Contact Methods -->
+                <div style="margin-top: 48px; text-align: center;">
+                    <h3 style="font-size: 20px; margin-bottom: 24px;">Or reach us directly:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
+                        <div style="padding: 24px; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: 16px;">
+                            <div style="font-size: 24px; margin-bottom: 8px;">📧</div>
+                            <div style="font-weight: 600; margin-bottom: 4px;">Email</div>
+                            <a href="mailto:hello@clearcoreai.com" style="color: var(--primary); text-decoration: none;">hello@clearcoreai.com</a>
+                        </div>
+                        <div style="padding: 24px; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: 16px;">
+                            <div style="font-size: 24px; margin-bottom: 8px;">💬</div>
+                            <div style="font-weight: 600; margin-bottom: 4px;">Response Time</div>
+                            <div style="color: var(--text-secondary);">Within 24 hours</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-brand">
+                        <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 6px; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);">
+                            <div style="width: 6px; height: 6px; background: white; border-radius: 50%; position: absolute; top: 6px; left: 6px;"></div>
+                            <div style="width: 6px; height: 6px; background: white; border-radius: 50%; position: absolute; top: 6px; right: 6px;"></div>
+                            <div style="width: 6px; height: 6px; background: white; border-radius: 50%; position: absolute; bottom: 6px; left: 6px;"></div>
+                            <div style="width: 6px; height: 6px; background: white; border-radius: 50%; position: absolute; bottom: 6px; right: 6px;"></div>
+                            <div style="width: 10px; height: 10px; background: white; border-radius: 50%;"></div>
+                        </div>
+                        <span class="footer-brand-text">ClearCoreAI</span>
+                    </div>
+                    <p class="footer-tagline">Advanced AI solutions for modern businesses.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#services">Services</a></li>
+                        <li class="footer-link"><a href="#features">Features</a></li>
+                        <li class="footer-link"><a href="#pricing">Pricing</a></li>
+                        <li class="footer-link"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#about">About</a></li>
+                        <li class="footer-link"><a href="#blog">Blog</a></li>
+                        <li class="footer-link"><a href="#careers">Careers</a></li>
+                        <li class="footer-link"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#privacy">Privacy</a></li>
+                        <li class="footer-link"><a href="#terms">Terms</a></li>
+                        <li class="footer-link"><a href="#security">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ClearCoreAI. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-link" aria-label="GitHub">GH</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Form Handling Script -->
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const button = this.querySelector('button[type="submit"]');
+            const messageDiv = document.getElementById('formMessage');
+            const originalButtonText = button.textContent;
+            
+            // Show loading state
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+            
+            try {
+                // Using Formspree (free form handling service)
+                // Replace 'YOUR_FORM_ID' with actual Formspree ID
+                const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    // Success
+                    messageDiv.style.display = 'block';
+                    messageDiv.style.background = 'rgba(16, 185, 129, 0.2)';
+                    messageDiv.style.border = '1px solid rgba(16, 185, 129, 0.5)';
+                    messageDiv.style.color = '#10b981';
+                    messageDiv.textContent = '✓ Thank you! We\\'ll get back to you within 24 hours.';
+                    this.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                // Error
+                messageDiv.style.display = 'block';
+                messageDiv.style.background = 'rgba(239, 68, 68, 0.2)';
+                messageDiv.style.border = '1px solid rgba(239, 68, 68, 0.5)';
+                messageDiv.style.color = '#ef4444';
+                messageDiv.textContent = '✗ Oops! Something went wrong. Please email us directly at hello@clearcoreai.com';
+            } finally {
+                // Reset button
+                button.textContent = originalButtonText;
+                button.disabled = false;
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        });
+        
+        // Input focus effects
+        document.querySelectorAll('input, select, textarea').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'rgba(99, 102, 241, 0.5)';
+                this.style.boxShadow = '0 0 0 4px rgba(99, 102, 241, 0.1)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.borderColor = 'var(--border-color)';
+                this.style.boxShadow = 'none';
+            });
+        });
+        
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
