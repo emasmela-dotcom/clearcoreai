@@ -106,6 +106,20 @@ body {
     opacity: 0.9;
 }
 
+.hero-quote {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.hero-quote h2 {
+    font-size: 1.8rem;
+    color: #00d4ff;
+    font-weight: 600;
+    font-style: italic;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    margin: 0;
+}
+
 .hero-buttons {
     display: flex;
     gap: 1rem;
