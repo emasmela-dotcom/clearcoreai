@@ -106,20 +106,6 @@ body {
     opacity: 0.9;
 }
 
-.hero-quote {
-    margin: 2rem 0;
-    text-align: center;
-}
-
-.hero-quote h2 {
-    font-size: 1.8rem;
-    color: #00d4ff;
-    font-weight: 600;
-    font-style: italic;
-    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-    margin: 0;
-}
-
 .hero-buttons {
     display: flex;
     gap: 1rem;
@@ -361,74 +347,12 @@ body {
     margin-bottom: 3rem;
 }
 
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.pricing-card {
-    background: #2a2a2a;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border: 1px solid #333;
-    position: relative;
-}
-
-.pricing-card.featured {
-    border-color: #00d4ff;
-    transform: scale(1.05);
-}
-
-.popular {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #00d4ff;
-    color: #000;
-    padding: 5px 20px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.pricing-card h3 {
-    font-size: 1.5rem;
-    color: #ffffff;
-    margin-bottom: 1rem;
-}
-
-.price {
-    margin-bottom: 2rem;
-}
-
-.currency {
-    font-size: 1.5rem;
-    color: #00d4ff;
-}
-
-.amount {
-    font-size: 3rem;
-    color: #ffffff;
-    font-weight: 700;
-}
-
-.period {
-    color: #b0b0b0;
-    font-size: 1rem;
-}
-
 .pricing-intro {
     text-align: center;
     font-size: 1.2rem;
     color: #b0b0b0;
     margin-bottom: 3rem;
-    max-width: 800px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -439,67 +363,93 @@ body {
     margin-bottom: 4rem;
 }
 
+.pricing-card {
+    background: #2a2a2a;
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #00d4ff;
+    transition: transform 0.3s ease;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-card h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
 .custom-price {
     font-size: 2.5rem;
+    font-weight: bold;
     color: #00d4ff;
-    font-weight: 700;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.features-list li {
+    padding: 0.8rem 0;
+    color: #b0b0b0;
+    border-bottom: 1px solid #333;
+    font-size: 1.1rem;
+}
+
+.features-list li:last-child {
+    border-bottom: none;
 }
 
 .pricing-benefits {
-    text-align: center;
+    background: #1a1a2e;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    border: 1px solid #333;
 }
 
 .pricing-benefits h3 {
+    text-align: center;
     font-size: 2rem;
-    color: #ffffff;
     margin-bottom: 2rem;
+    color: #ffffff;
 }
 
 .benefits-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
 }
 
 .benefit-item {
     text-align: center;
     padding: 1.5rem;
-    background: #1a1a1a;
-    border-radius: 10px;
-    border: 1px solid #333;
 }
 
 .benefit-item i {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #00d4ff;
     margin-bottom: 1rem;
 }
 
 .benefit-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
     color: #ffffff;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
 }
 
 .benefit-item p {
     color: #b0b0b0;
-    font-size: 0.9rem;
-}
-
-.features-list {
-    list-style: none;
-    margin-bottom: 2rem;
-}
-
-.features-list li {
-    padding: 0.5rem 0;
-    color: #b0b0b0;
-    border-bottom: 1px solid #333;
-}
-
-.features-list li:last-child {
-    border-bottom: none;
+    line-height: 1.6;
 }
 
 /* Documentation Section */
