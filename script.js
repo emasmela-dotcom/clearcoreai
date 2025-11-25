@@ -242,10 +242,10 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (error) {
                 if (formMessage) {
                     formMessage.className = 'form-message error';
-                    formMessage.textContent = 'Sorry, there was an error. Please try again or email us at partners.clearhub@outlook.com';
+                    formMessage.textContent = 'Sorry, there was an error. Please try again or email us at partners.clearhub@gmail.com';
                     formMessage.style.display = 'block';
                 } else {
-                    alert('Sorry, there was an error. Please email us at partners.clearhub@outlook.com');
+                    alert('Sorry, there was an error. Please email us at partners.clearhub@gmail.com');
                 }
             } finally {
                 submitButton.disabled = false;
