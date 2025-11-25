@@ -15,8 +15,13 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// Smooth scrolling for navigation links
+// Smooth scrolling for navigation links (but not modal links)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Skip modal links - they should open modals, not scroll
+    if (anchor.getAttribute('href') === '#contact-modal' || anchor.hasAttribute('onclick')) {
+        return;
+    }
+    
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
