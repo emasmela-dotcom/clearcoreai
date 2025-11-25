@@ -759,6 +759,31 @@ body {
     gap: 1rem;
 }
 
+.form-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    display: none;
+}
+
+.form-message.success {
+    display: block;
+    background: #2d5a2d;
+    color: #90ee90;
+    border: 1px solid #4a8a4a;
+}
+
+.form-message.error {
+    display: block;
+    background: #5a2d2d;
+    color: #ee9090;
+    border: 1px solid #8a4a4a;
+}
+
+.hidden {
+    display: none !important;
+}
+
 .modal .form-group input,
 .modal .form-group select,
 .modal .form-group textarea {

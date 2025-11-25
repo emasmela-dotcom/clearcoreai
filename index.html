@@ -20,7 +20,7 @@
                 <li><a href="#solutions">Solutions</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#docs">Docs</a></li>
-                <li><a href="mailto:partners.clearhub@gmail.com?subject=ClearCoreAI Getting Started" class="btn btn-primary">Get Started</a></li>
+                <li><a href="#contact-modal" class="btn btn-primary" onclick="openModal()">Get Started</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -39,7 +39,7 @@
                 <h2>"Have an idea? Let us build it and make it your reality!"</h2>
             </div>
             <div class="hero-buttons">
-                <a href="mailto:partners.clearhub@gmail.com?subject=ClearCoreAI Getting Started" class="btn btn-primary">Start Building</a>
+                <a href="#contact-modal" class="btn btn-primary" onclick="openModal()">Start Building</a>
             </div>
             <div class="hero-cta">
                 <a href="#contact-modal" class="btn btn-primary btn-large" onclick="openModal()">Get Started</a>
@@ -265,7 +265,7 @@
                             <li><i class="fas fa-check"></i> Deployment Setup</li>
                         </ul>
                     </div>
-                    <a href="mailto:partners.clearhub@gmail.com?subject=ClearCoreAI Starter Package - $497" class="btn btn-primary">Get Started</a>
+                    <a href="#contact-modal" class="btn btn-primary" onclick="openModal()">Get Started</a>
                 </div>
                 
                 <div class="pricing-card featured">
@@ -288,7 +288,7 @@
                             <li><i class="fas fa-check"></i> Performance Optimization</li>
                         </ul>
                     </div>
-                    <a href="mailto:partners.clearhub@gmail.com?subject=ClearCoreAI Professional Package - $997" class="btn btn-primary">Get Started</a>
+                    <a href="#contact-modal" class="btn btn-primary" onclick="openModal()">Get Started</a>
                 </div>
                 
                 <div class="pricing-card">
@@ -310,7 +310,7 @@
                             <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
                         </ul>
                     </div>
-                    <a href="mailto:partners.clearhub@gmail.com?subject=ClearCoreAI Enterprise Package - Custom Quote" class="btn btn-primary">Contact Us</a>
+                    <a href="#contact-modal" class="btn btn-primary" onclick="openModal()">Contact Us</a>
                 </div>
             </div>
             
@@ -423,7 +423,13 @@
             <h2>Ready to Build AI Applications?</h2>
             <p>Get in touch with us to discuss your AI project</p>
             <div class="contact-form-container">
-                <form class="contact-form" action="mailto:partners.clearhub@gmail.com" method="post" enctype="text/plain">
+                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="9f6ac12b-93eb-463c-9d70-61d3781e5518">
+                    <input type="hidden" name="subject" value="New ClearCoreAI Quote Request">
+                    <input type="hidden" name="from_name" value="ClearCoreAI Platform">
+                    <input type="hidden" name="to" value="partners.clearhub@outlook.com">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
                     </div>
@@ -453,6 +459,7 @@
                         <textarea name="message" placeholder="Tell us about your AI project" rows="4"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
+                    <div class="form-message" id="form-message"></div>
                 </form>
             </div>
         </div>
@@ -486,7 +493,7 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>partners.clearhub@gmail.com</p>
+                    <p>partners.clearhub@outlook.com</p>
                     <p>AI Solutions Hub</p>
                 </div>
             </div>
@@ -501,7 +508,13 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Get Started Today</h2>
-            <form class="contact-form" action="mailto:partners.clearhub@gmail.com" method="post" enctype="text/plain">
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="9f6ac12b-93eb-463c-9d70-61d3781e5518">
+                <input type="hidden" name="subject" value="New ClearCoreAI Quote Request">
+                <input type="hidden" name="from_name" value="ClearCoreAI Platform">
+                <input type="hidden" name="to" value="partners.clearhub@outlook.com">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Your Name" required>
                 </div>
@@ -531,6 +544,7 @@
                     <textarea name="message" placeholder="Tell us about your AI project" rows="4"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Send Message</button>
+                <div class="form-message" id="modal-form-message"></div>
             </form>
         </div>
     </div>

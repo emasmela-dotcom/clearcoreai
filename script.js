@@ -200,4 +200,74 @@ document.addEventListener('DOMContentLoaded', () => {
             typeWriter(heroTitle, originalText, 50);
         }, 1000);
     }
+    
+    // Handle contact form submissions
+    document.querySelectorAll('.contact-form').forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            const formMessage = form.querySelector('.form-message') || document.getElementById('modal-form-message');
+            
+            // Disable submit button
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            if (formMessage) formMessage.style.display = 'none';
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    if (formMessage) {
+                        formMessage.className = 'form-message success';
+                        formMessage.textContent = 'Thank you! Your request has been sent. We\'ll get back to you soon.';
+                        formMessage.style.display = 'block';
+                    } else {
+                        alert('Thank you! Your request has been sent. We\'ll get back to you soon.');
+                    }
+                    form.reset();
+                    if (form.closest('.modal')) {
+                        setTimeout(() => closeModal(), 2000);
+                    }
+                } else {
+                    throw new Error(result.message || 'Form submission failed');
+                }
+            } catch (error) {
+                if (formMessage) {
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = 'Sorry, there was an error. Please try again or email us at partners.clearhub@outlook.com';
+                    formMessage.style.display = 'block';
+                } else {
+                    alert('Sorry, there was an error. Please email us at partners.clearhub@outlook.com');
+                }
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        });
+    });
 });
+
+// Modal functions
+function openModal() {
+    document.getElementById('contact-modal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('contact-modal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('contact-modal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
