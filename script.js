@@ -206,26 +206,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
     
-    // Handle contact form submissions
+    // Handle contact form submissions - let form submit naturally to Formspree
     document.querySelectorAll('.contact-form').forEach(form => {
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
+        form.addEventListener('submit', function(e) {
             const submitButton = form.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
-            const formMessage = form.querySelector('.form-message') || document.getElementById('modal-form-message');
             
-            // Disable submit button
+            // Disable submit button and show sending state
             submitButton.disabled = true;
             submitButton.textContent = 'Sending...';
-            if (formMessage) formMessage.style.display = 'none';
             
-            try {
-                const formData = new FormData(form);
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData
-                });
+            // Let form submit naturally - no preventDefault
+        });
                 
                 const result = await response.json();
                 
